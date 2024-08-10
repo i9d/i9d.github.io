@@ -95,6 +95,7 @@ function copyToClipboard(text) {
 }
 
 async function generateCodes() {
+    document.getElementById('keygenButton').setAttribute('disabled', '');
     const output = document.getElementById('output');
     output.innerHTML = 'Generating codes... Click on the code to copy';
 
