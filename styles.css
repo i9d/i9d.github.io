@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    background-color: #066aa1
+}
+
+.keygen-button {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 25%;
+    width: 80px;
+    height: 80px;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+.output {
+    margin-top: 20px;
+}
