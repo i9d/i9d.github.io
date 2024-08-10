@@ -3,19 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Generator</title>
+    <title>Hamster Fam Generator</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hamster Kombat Key Generator</h1>
-    <p>Generate 16 codes (4 for each game) directly from this miniapp</p>
-
-    <div class="output" id="output"></div>
-
-    <button class="keygen-button" id="keygenButton">🔑</button>
-
-    <script src="app.js"></script>
+<h1>Hamster Fam Key Generator</h1>
+<p>Generate codes for selected games directly from this miniapp</p>
+<div class="menu-container">
+    <div class="game-options">
+        <button class="game-button" data-game="bike">Bike Ride 3D</button>
+        <button class="game-button" data-game="clone">My Clone Army</button>
+        <button class="game-button" data-game="cube">Chain Cube 2048</button>
+        <button class="game-button" data-game="train">Train Miner</button>
+    </div>
+    <div class="code-count">
+        <label>Number of codes for each game:</label>
+        <div class="count-buttons">
+            <button id="decreaseCount">-</button>
+            <span id="codeCount">4</span>
+            <button id="increaseCount">+</button>
+        </div>
+    </div>
+</div>
+<div class="output">
+    <p id="generating-text" class="hidden">Generating codes... Wait...</p>
+    <div id="output-codes"></div>
+    <p id="generated-text" class="hidden">All codes generated!</p>
+</div>
+<button class="keygen-button" id="keygenButton">🔑</button>
+<script src="app.js"></script>
 </body>
 </html>
-

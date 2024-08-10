@@ -1,22 +1,168 @@
+/* Общие стили для всего тела страницы */
 body {
-    font-family: Arial, sans-serif;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-    background-color: #066aa1
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Градиент от светло-голубого к голубому */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
+/* Основной заголовок */
+h1 {
+    font-size: 28px;
+    color: #000;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* Основной текст */
+p {
+    color: #555;
+    margin: 0 0 40px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Контейнер для меню и кнопок */
+.menu-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+/* Стили для опций игр */
+.game-options {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.game-button {
+    background: #f5f5f5;
+    color: #00796b;
+    border: 1px solid #00796b;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.game-button.active {
+    background: #00796b;
+    color: #fff;
+}
+
+.game-button:hover {
+    background: #004d40;
+    color: #fff;
+}
+
+/* Стили для выбора количества кодов */
+.code-count {
+    margin-bottom: 15px;
+}
+
+.code-count label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+}
+
+.count-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.count-buttons button {
+    background: #f5f5f5;
+    color: #00796b;
+    border: 1px solid #00796b;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.count-buttons button:hover:not(:disabled) {
+    background: #004d40;
+    color: #fff;
+}
+
+.count-buttons button:disabled {
+    background: #e0e0e0;
+    border-color: #bdbdbd;
+    cursor: not-allowed;
+    color: #757575;
+}
+
+/* Стиль для числа кодов */
+#codeCount {
+    font-size: 24px;
+    color: #000;
+    margin: 0 10px;
+}
+
+/* Стили для кнопки генерации кодов */
 .keygen-button {
-    background-color: #ffffff;
+    background-color: #00796b;
+    color: #fff;
     border: none;
-    border-radius: 25%;
+    border-radius: 50%;
+    padding: 10px 20px;
     width: 80px;
     height: 80px;
-    font-size: 48px;
+    font-size: 20px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    margin: 20px auto;
 }
 
+.keygen-button:hover:not(:disabled) {
+    background: #004d40;
+    color: #fff;
+}
+
+.keygen-button:disabled {
+    background: #e0e0e0;
+    border-color: #bdbdbd;
+    cursor: not-allowed;
+    color: #757575;
+}
+
+/* Стили для вывода кодов */
 .output {
     margin-top: 20px;
-    
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Скрытые элементы */
+.hidden {
+    display: none;
 }
