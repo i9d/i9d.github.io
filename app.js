@@ -88,7 +88,7 @@ function generateRandomUUID() {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert(`Copied to clipboard: ${text}`);
+        console.log(`Copied to clipboard: ${text}`);
     }).catch(err => {
         console.error('Error copying to clipboard', err);
     });
@@ -96,7 +96,7 @@ function copyToClipboard(text) {
 
 async function generateCodes() {
     const output = document.getElementById('output');
-    output.innerHTML = 'Generating codes...';
+    output.innerHTML = 'Generating codes... Click on the code to copy';
 
     ready_codes = [];
     for (const game of games) {
@@ -109,7 +109,7 @@ async function generateCodes() {
 
                 // Add the generated code to the output with a click handler
                 const codeElement = document.createElement('p');
-                codeElement.textContent = `${game.name} #${i + 1}: ${code}`;
+                codeElement.textContent = `${code}`;
                 codeElement.addEventListener('click', () => copyToClipboard(code));
                 output.appendChild(codeElement);
             } catch (error) {
