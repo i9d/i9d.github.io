@@ -132,6 +132,7 @@ p {
     transition: background-color 0.3s, color 0.3s;
     display: block;
     margin: 20px auto;
+    min-height: 80px;
 }
 
 
