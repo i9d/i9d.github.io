@@ -1,7 +1,7 @@
 /* Общие стили для всего тела страницы */
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin: 50px auto auto;
     padding: 0;
     background: linear-gradient(to right, #e3f2fd, #bbdefb); /* Градиент от светло-голубого к голубому */
     color: #333;
@@ -9,9 +9,36 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     box-sizing: border-box;
 }
+
+
+/* Контейнер для кнопок ссылок */
+.links-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.link-button {
+    background-color: #0288d1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.link-button:hover {
+    background-color: #0277bd;
+}
+
 
 /* Основной заголовок */
 h1 {
