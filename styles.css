@@ -64,10 +64,6 @@ p {
     color: #fff;
 }
 
-.game-button:hover {
-    background: #004d40;
-    color: #fff;
-}
 
 /* Стили для выбора количества кодов */
 .code-count {
@@ -138,10 +134,6 @@ p {
     margin: 20px auto;
 }
 
-.keygen-button:hover:not(:disabled) {
-    background: #004d40;
-    color: #fff;
-}
 
 .keygen-button:disabled {
     background: #e0e0e0;
