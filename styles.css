@@ -49,6 +49,14 @@ h1 {
     font-weight: normal;
 }
 
+h2 {
+    font-size: 24px;
+    color: #01579b;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: normal;
+}
+
 /* Основной текст */
 p {
     color: #555;
@@ -129,7 +137,7 @@ p {
     color: #fff;
 }
 
-.count-buttons button:disabled {
+button:disabled {
     background: #e0e0e0;
     border-color: #bdbdbd;
     cursor: not-allowed;

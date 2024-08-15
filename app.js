@@ -2,7 +2,8 @@ const games = [
     {name: 'Bike', appToken: 'd28721be-fd2d-4b45-869e-9f253b554e50', promoId: '43e35910-c168-4634-ad4f-52fd764a843f'},
     {name: 'Cube', appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3'},
     {name: 'Clone', appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767'},
-    {name: 'Train', appToken: '82647f43-3f87-402d-88dd-09a90025313f', promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954'}
+    {name: 'Train', appToken: '82647f43-3f87-402d-88dd-09a90025313f', promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954'},
+    {name: 'Merge', appToken: '', promoId: ''}
 ];
 
 let ready_codes = [];
@@ -10,7 +11,8 @@ let codesCount = {
     bike: 0,
     cube: 0,
     clone: 0,
-    train: 0
+    train: 0,
+    merge: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
@@ -154,6 +156,61 @@ async function generateCodes() {
     keygenButton.removeAttribute('disabled');
 }
 
+function updateButtonStates() {
+    decreaseButton.disabled = (codeCount <= MIN_CODES);
+    increaseButton.disabled = (codeCount >= MAX_CODES_PER_GAME);
+}
+
+function updateGameSelection() {
+    const selectedGames = Array.from(document.querySelectorAll('.game-button.active'))
+        .map(button => button.getAttribute('data-game'));
+    console.log('Selected games:', selectedGames);
+    // Логика для обработки выбранных игр
+}
+
+
+function checkSubscription() {
+    const subscribedPart = document.getElementById('subscribed')
+    const unsubscribedPart = document.getElementById('unsubscribed')
+    const fail = document.getElementById('fail')
+
+
+    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id ?? '307766739';
+    if (!userId) {
+        fail.classList.remove('hidden')
+        subscribedPart.classList.add('hidden')
+    } else {
+
+        const url = `http://localhost:8080/check-subscription?userId=${userId}`;
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Предполагаем, что ответ в формате JSON
+            })
+            .then(data => {
+                // Обработка полученных данных
+                console.log('User subscription status:', data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+
+        var subscribed = false
+        if (!subscribed) {
+            subscribedPart.classList.add('hidden')
+            unsubscribedPart.classList.remove('hidden')
+        } else {
+            subscribedPart.classList.remove('hidden')
+            unsubscribedPart.classList.add('hidden')
+        }
+    }
+}
+
+// checkSubscription()
+
 const gameButtons = document.querySelectorAll('.game-button');
 
 gameButtons.forEach(button => {
@@ -184,16 +241,5 @@ increaseButton.addEventListener('click', () => {
     }
 });
 
-function updateButtonStates() {
-    decreaseButton.disabled = (codeCount <= MIN_CODES);
-    increaseButton.disabled = (codeCount >= MAX_CODES_PER_GAME);
-}
-
-function updateGameSelection() {
-    const selectedGames = Array.from(document.querySelectorAll('.game-button.active'))
-        .map(button => button.getAttribute('data-game'));
-    console.log('Selected games:', selectedGames);
-    // Логика для обработки выбранных игр
-}
 
 document.getElementById('keygenButton').addEventListener('click', generateCodes);

@@ -21,28 +21,41 @@
 
 <h1>Hamster Fam Key Generator</h1>
 <p>Generate codes for selected games directly from this miniapp</p>
-<div class="menu-container">
-    <div class="game-options">
-        <button class="game-button" data-game="bike">Bike Ride 3D</button>
-        <button class="game-button" data-game="clone">My Clone Army</button>
-        <button class="game-button" data-game="cube">Chain Cube 2048</button>
-        <button class="game-button" data-game="train">Train Miner</button>
-    </div>
-    <div class="code-count">
-        <label>Number of codes for each game:</label>
-        <div class="count-buttons">
-            <button id="decreaseCount">-</button>
-            <span id="codeCount">4</span>
-            <button id="increaseCount">+</button>
+<div id="subscribed">
+    <div class="menu-container">
+        <div class="game-options">
+            <button class="game-button" data-game="bike">Bike Ride 3D</button>
+            <button class="game-button" data-game="clone">My Clone Army</button>
+            <button class="game-button" data-game="cube">Chain Cube 2048</button>
+            <button class="game-button" data-game="train">Train Miner</button>
+            <button class="game-button" data-game="train" disabled>Merge Away (soon)</button>
+        </div>
+        <div class="code-count">
+            <label>Number of codes for each game:</label>
+            <div class="count-buttons">
+                <button id="decreaseCount">-</button>
+                <span id="codeCount">4</span>
+                <button id="increaseCount">+</button>
+            </div>
         </div>
     </div>
-</div>
-<div class="output">
-    <p id="generating-text" class="hidden">Generating codes... Wait...</p>
-    <div id="output-codes"></div>
-    <p id="generated-text" class="hidden">All codes generated!</p>
-</div>
+    <div class="output">
+        <p id="generating-text" class="hidden">Generating codes... Wait...</p>
+        <div id="output-codes"></div>
+        <p id="generated-text" class="hidden">All codes generated!</p>
+    </div>
 <button class="keygen-button" id="keygenButton">🔑</button>
+</div>
+<div id="unsubscribed" class="hidden">
+    <h2>
+        It seems you haven't subscribed to the channels. Go back to the bot, subscribe and come back.
+    </h2>
+</div>
+<div id="fail" class="hidden">
+    <h2>
+        An error has occurred. Please try again later.
+    </h2>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
