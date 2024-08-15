@@ -3,7 +3,7 @@ const games = [
     {name: 'Cube', appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3'},
     {name: 'Clone', appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767'},
     {name: 'Train', appToken: '82647f43-3f87-402d-88dd-09a90025313f', promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954'},
-    {name: 'Merge', appToken: '', promoId: ''}
+    {name: 'Merge', appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4'}
 ];
 
 let ready_codes = [];
@@ -116,7 +116,7 @@ async function generateCodes() {
     finishMessage.classList.add('hidden')
 
     ready_codes = [];
-    codesCount = {bike: 0, cube: 0, clone: 0, train: 0};
+    codesCount = {bike: 0, cube: 0, clone: 0, train: 0, merge: 0};
 
     const selectedGames = Array.from(document.querySelectorAll('.game-button.active')).map(button => button.getAttribute('data-game'));
     const totalCodesPerGame = parseInt(document.getElementById('codeCount').textContent);
