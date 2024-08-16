@@ -180,7 +180,6 @@ button:disabled {
 .output {
     margin-top: 20px;
     width: 100%;
-    max-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
