@@ -100,9 +100,6 @@ p {
     margin: 0 auto 15px;
     flex-wrap: wrap;
     justify-content: space-around;
-    /*width: 100%;*/
-
-
 }
 
 .game-button {
