@@ -216,6 +216,7 @@ button:disabled {
 
 /* Стили для вывода кодов */
 .output {
+    padding: 10px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
