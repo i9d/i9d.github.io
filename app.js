@@ -159,8 +159,16 @@ async function generateCodes() {
 }
 
 function updateButtonStates() {
-    decreaseButton.disabled = (codeCount <= MIN_CODES);
-    increaseButton.disabled = (codeCount >= MAX_CODES_PER_GAME);
+    if (codeCount <= MIN_CODES) {
+        decreaseButton.classList.add('hidden')
+    } else {
+        decreaseButton.classList.remove('hidden')
+    }
+    if (codeCount >= MAX_CODES_PER_GAME) {
+        increaseButton.classList.add('hidden')
+    } else {
+        increaseButton.classList.remove('hidden')
+    }
 }
 
 function updateGameSelection() {
@@ -212,7 +220,6 @@ function checkSubscription() {
 }
 
 // checkSubscription()
-
 const gameButtons = document.querySelectorAll('.game-button');
 
 gameButtons.forEach(button => {
@@ -226,7 +233,7 @@ const decreaseButton = document.getElementById('decreaseCount');
 const increaseButton = document.getElementById('increaseCount');
 const codeCountSpan = document.getElementById('codeCount');
 let codeCount = parseInt(codeCountSpan.textContent, 10);
-
+updateButtonStates();
 decreaseButton.addEventListener('click', () => {
     if (codeCount > MIN_CODES) {
         codeCount--;
