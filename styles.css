@@ -86,6 +86,10 @@ p {
     text-align: center;
 }
 
+.heading {
+    margin-bottom: 10px;
+}
+
 /* Контейнер для меню и кнопок */
 .menu-container {
     /*background-color: #292a2f;*/
