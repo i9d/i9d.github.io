@@ -215,7 +215,7 @@ function checkSubscription() {
 }
 
 checkSubscription()
-document.getElementById('checkSub').addEventListener('click', checkSubscription);
+document.getElementById('checkSub')?.addEventListener('click', checkSubscription);
 
 const gameButtons = document.querySelectorAll('.game-button');
 

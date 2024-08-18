@@ -187,7 +187,8 @@ button:disabled {
 }
 
 /* Стили для кнопки генерации кодов */
-.keygen-button {
+.keygen-button,
+.check-subscription {
     background-color: #5a61ff;
     border: none;
     color: #f8f9fb;
