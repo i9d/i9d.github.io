@@ -183,18 +183,12 @@ function updateGameSelection() {
 function checkSubscription() {
     const subscribedPart = document.getElementById('subscribed')
     const unsubscribedPart = document.getElementById('unsubscribed')
-    const fail = document.getElementById('fail')
 
 
-    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id ?? '307766739';
-    if (!userId) {
-        fail.classList.remove('hidden')
-        subscribedPart.classList.add('hidden')
-    } else {
-
-        const url = `http://localhost:8080/check-subscription?userId=${userId}`;
-
-        fetch(url)
+    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id;
+    if (userId) {
+        const url = `https://hkfambot-pnikitap.amvera.io/check-subscription?userId=${userId}`;
+        let result = fetch(url)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -209,7 +203,7 @@ function checkSubscription() {
                 console.error('There was a problem with the fetch operation:', error);
             });
 
-        var subscribed = false
+        const subscribed = result?.subscribed
         if (!subscribed) {
             subscribedPart.classList.add('hidden')
             unsubscribedPart.classList.remove('hidden')
@@ -220,7 +214,9 @@ function checkSubscription() {
     }
 }
 
-// checkSubscription()
+checkSubscription()
+document.getElementById('checkSub').addEventListener('click', checkSubscription);
+
 const gameButtons = document.querySelectorAll('.game-button');
 
 gameButtons.forEach(button => {
@@ -250,6 +246,5 @@ increaseButton.addEventListener('click', () => {
         updateButtonStates();
     }
 });
-
 
 document.getElementById('keygenButton').addEventListener('click', generateCodes);
