@@ -19,7 +19,7 @@ body {
     align-items: center;
     background-color: #292a30;
     padding: 10px 0;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -30,7 +30,7 @@ body {
     color: #777;
     transition: color 0.3s ease, background-color 0.3s ease;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
     width: 80px; /* Фиксированная ширина для всех элементов */
     height: 100px; /* Фиксированная высота для всех элементов */
@@ -93,7 +93,7 @@ p {
 /* Контейнер для меню и кнопок */
 .menu-container {
     /*background-color: #292a2f;*/
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 20px;
 }
 
@@ -118,7 +118,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 15px;
     height: 135px;
 }
 
@@ -128,7 +128,7 @@ p {
 
 .game-button .game-icon {
     width: 80px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 15px;
 }
 
@@ -142,7 +142,7 @@ p {
 /* Стили для выбора количества кодов */
 .code-count {
     background-color: #292a2f;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
     margin-bottom: 15px;
 }
@@ -164,7 +164,7 @@ p {
     color: #fcfdfd;
     border: 1px solid #1e1f24;
     padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 15px;
     cursor: pointer;
     width: 50px;
     height: 50px;
@@ -191,7 +191,7 @@ button:disabled {
     background-color: #5a61ff;
     border: none;
     color: #f8f9fb;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 15px;
     font-size: 28px;
     width: 100%;
@@ -210,12 +210,14 @@ button:disabled {
 
 .keygen-button .key-icon {
     width: 80px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 15px;
 }
 
 /* Стили для вывода кодов */
 .output {
+
+    margin-bottom: 20px;
     padding: 10px 0;
     width: 100%;
     display: flex;
@@ -224,7 +226,68 @@ button:disabled {
     align-items: center;
 }
 
-/* Скрытые элементы */
+#generating-text,
+#generated-text,
+.code {
+    background-color: #292a2f;
+    border-radius: 15px;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.code::before {
+    counter-increment: code-counter;
+    content: counter(code-counter) ". ";
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.code::after {
+    content: "";
+    /*background-image: ;*/
+    /*background-size: 28px 28px;*/
+    background: center / contain no-repeat url('assets/copy.svg');
+    right: 40px;
+    position: absolute;
+    height: 24px;
+    width: 24px;
+}
+
+
+#output-codes {
+    width: 100%;
+    counter-reset: code-counter;
+}
+
+.throbber {
+    margin-left: 15px;
+    width: 28px;
+}
+
+/*#generating-text::after {*/
+/*    background: url("assets/throbber.gif") no-repeat center center;*/
+/*    content: '';*/
+/*    display: inline-block;*/
+/*    width: 32px;*/
+/*    height: 32px;*/
+/*    background-size: contain;*/
+/*    position: absolute;*/
+/*    right: -45px;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*}*/
+
 .hidden {
+    display: none;
+}
+
+.transparent {
     opacity: 0;
+
 }

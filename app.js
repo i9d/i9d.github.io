@@ -135,6 +135,7 @@ async function generateCodes() {
 
                     // Add the generated code to the output with a click handler
                     const codeElement = document.createElement('p');
+                    codeElement.classList.add('code')
                     codeElement.textContent = `${code}`;
                     codeElement.addEventListener('click', () => copyToClipboard(code));
                     output.appendChild(codeElement);
@@ -160,14 +161,14 @@ async function generateCodes() {
 
 function updateButtonStates() {
     if (codeCount <= MIN_CODES) {
-        decreaseButton.classList.add('hidden')
+        decreaseButton.classList.add('transparent')
     } else {
-        decreaseButton.classList.remove('hidden')
+        decreaseButton.classList.remove('transparent')
     }
     if (codeCount >= MAX_CODES_PER_GAME) {
-        increaseButton.classList.add('hidden')
+        increaseButton.classList.add('transparent')
     } else {
-        increaseButton.classList.remove('hidden')
+        increaseButton.classList.remove('transparent')
     }
 }
 
