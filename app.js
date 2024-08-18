@@ -84,7 +84,7 @@ async function createCode(token, promoId) {
             });
         } catch (error) {
             console.error('Error creating code:', error.message);
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            await new Promise(resolve => setTimeout(resolve, 30000));
         }
     } while (!response || !response.data.promoCode);
 
@@ -129,9 +129,6 @@ async function generateCodes() {
                 try {
                     const token = await loginClient(game.appToken);
                     await registerEvent(token, game.promoId);
-                    setTimeout(() => {
-                        console.log("Wait 30sec");
-                    }, 30000);
                     const code = await createCode(token, game.promoId);
                     ready_codes.push({game: game.name, code});
                     codesCount[game.name.toLowerCase()]++;
