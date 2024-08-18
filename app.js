@@ -129,6 +129,9 @@ async function generateCodes() {
                 try {
                     const token = await loginClient(game.appToken);
                     await registerEvent(token, game.promoId);
+                    setTimeout(() => {
+                        console.log("Wait 30sec");
+                    }, 30000);
                     const code = await createCode(token, game.promoId);
                     ready_codes.push({game: game.name, code});
                     codesCount[game.name.toLowerCase()]++;
