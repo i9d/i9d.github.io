@@ -59,13 +59,13 @@ async function registerEvent(token, promoId) {
         });
 
         if (!response.data.hasCode) {
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise(resolve => setTimeout(resolve, 15000));
             return registerEvent(token, promoId);
         } else {
             return true;
         }
     } catch (error) {
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 30000));
         return registerEvent(token, promoId);
     }
 }
@@ -84,7 +84,7 @@ async function createCode(token, promoId) {
             });
         } catch (error) {
             console.error('Error creating code:', error.message);
-            await new Promise(resolve => setTimeout(resolve, 30000));
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     } while (!response || !response.data.promoCode);
 
