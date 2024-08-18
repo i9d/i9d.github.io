@@ -188,12 +188,19 @@ function checkSubscription() {
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id;
     if (userId) {
         const url = `https://hkfambot-pnikitap.amvera.io/check-subscription?userId=${userId}`;
-        let result = fetch(url)
+        fetch(url)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json(); // Предполагаем, что ответ в формате JSON
+                const subscribed =  response.json()?.subscribed
+                if (!subscribed) {
+                    subscribedPart.classList.add('hidden')
+                    unsubscribedPart.classList.remove('hidden')
+                } else {
+                    subscribedPart.classList.remove('hidden')
+                    unsubscribedPart.classList.add('hidden')
+                }
             })
             .then(data => {
                 // Обработка полученных данных
@@ -203,14 +210,7 @@ function checkSubscription() {
                 console.error('There was a problem with the fetch operation:', error);
             });
 
-        const subscribed = result?.subscribed
-        if (!subscribed) {
-            subscribedPart.classList.add('hidden')
-            unsubscribedPart.classList.remove('hidden')
-        } else {
-            subscribedPart.classList.remove('hidden')
-            unsubscribedPart.classList.add('hidden')
-        }
+
     }
 }
 
