@@ -65,7 +65,7 @@ async function registerEvent(token, promoId) {
             return true;
         }
     } catch (error) {
-        await new Promise(resolve => setTimeout(resolve, 30000));
+        await new Promise(resolve => setTimeout(resolve, 15000));
         return registerEvent(token, promoId);
     }
 }
