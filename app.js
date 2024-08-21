@@ -113,11 +113,11 @@ async function generateCodes() {
     const keygenButton = document.getElementById('keygenButton');
     keygenButton.setAttribute('disabled', '');
     const output = document.getElementById('output-codes');
-    output.innerHTML = ''
+    output.innerHTML = '';
     const output_text = document.getElementById('generating-text');
     const finishMessage = document.getElementById('generated-text');
-    output_text.classList.remove('hidden')
-    finishMessage.classList.add('hidden')
+    output_text.classList.remove('hidden');
+    finishMessage.classList.add('hidden');
 
     ready_codes = [];
     codesCount = {bike: 0, cube: 0, clone: 0, train: 0, merge: 0, twerk: 0, polysphere: 0};
@@ -125,7 +125,7 @@ async function generateCodes() {
     const selectedGames = Array.from(document.querySelectorAll('.game-button.active')).map(button => button.getAttribute('data-game'));
     const totalCodesPerGame = parseInt(document.getElementById('codeCount').textContent);
 
-    for (const game of games) {
+    const tasks = games.map(async (game) => {
         if (selectedGames.includes(game.name.toLowerCase())) {
             while (codesCount[game.name.toLowerCase()] < totalCodesPerGame) {
                 try {
@@ -137,7 +137,7 @@ async function generateCodes() {
 
                     // Add the generated code to the output with a click handler
                     const codeElement = document.createElement('p');
-                    codeElement.classList.add('code')
+                    codeElement.classList.add('code');
                     codeElement.textContent = `${code}`;
                     codeElement.addEventListener('click', () => copyToClipboard(code));
                     output.appendChild(codeElement);
@@ -153,7 +153,11 @@ async function generateCodes() {
                 }
             }
         }
-    }
+    });
+
+
+    // Ждем выполнения всех задач параллельно
+    await Promise.all(tasks);
 
     output_text.classList.add('hidden')
     finishMessage.classList.remove('hidden')
@@ -181,11 +185,9 @@ function updateGameSelection() {
     // Логика для обработки выбранных игр
 }
 
-
 function checkSubscription() {
-    const subscribedPart = document.getElementById('subscribed')
-    const unsubscribedPart = document.getElementById('unsubscribed')
-
+    const subscribedPart = document.getElementById('subscribed');
+    const unsubscribedPart = document.getElementById('unsubscribed');
 
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id;
     if (userId) {
@@ -195,28 +197,26 @@ function checkSubscription() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const subscribed =  response.json()?.subscribed
-                if (!subscribed) {
-                    subscribedPart.classList.add('hidden')
-                    unsubscribedPart.classList.remove('hidden')
-                } else {
-                    subscribedPart.classList.remove('hidden')
-                    unsubscribedPart.classList.add('hidden')
-                }
+                return response.json();
             })
             .then(data => {
-                // Обработка полученных данных
+                const subscribed = data.subscribed;
+                if (!subscribed) {
+                    subscribedPart.classList.add('hidden');
+                    unsubscribedPart.classList.remove('hidden');
+                } else {
+                    subscribedPart.classList.remove('hidden');
+                    unsubscribedPart.classList.add('hidden');
+                }
                 console.log('User subscription status:', data);
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
-
-
     }
 }
 
-checkSubscription()
+checkSubscription();
 document.getElementById('checkSub')?.addEventListener('click', checkSubscription);
 
 const gameButtons = document.querySelectorAll('.game-button');
@@ -248,5 +248,7 @@ increaseButton.addEventListener('click', () => {
         updateButtonStates();
     }
 });
+
+updateButtonStates();
 
 document.getElementById('keygenButton').addEventListener('click', generateCodes);
