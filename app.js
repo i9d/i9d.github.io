@@ -61,13 +61,13 @@ async function registerEvent(token, promoId) {
         });
 
         if (!response.data.hasCode) {
-            await new Promise(resolve => setTimeout(resolve, 30000));
+            await new Promise(resolve => setTimeout(resolve, 5000));
             return registerEvent(token, promoId);
         } else {
             return true;
         }
     } catch (error) {
-        await new Promise(resolve => setTimeout(resolve, 30000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
         return registerEvent(token, promoId);
     }
 }
@@ -125,9 +125,10 @@ async function generateCodes() {
     const selectedGames = Array.from(document.querySelectorAll('.game-button.active')).map(button => button.getAttribute('data-game'));
     const totalCodesPerGame = parseInt(document.getElementById('codeCount').textContent);
 
-    const tasks = games.map(async (game) => {
+
+    const tasks = games.flatMap(game => {
         if (selectedGames.includes(game.name.toLowerCase())) {
-            while (codesCount[game.name.toLowerCase()] < totalCodesPerGame) {
+            return Array.from({length: totalCodesPerGame}).map(async () => {
                 try {
                     const token = await loginClient(game.appToken);
                     await registerEvent(token, game.promoId);
@@ -135,32 +136,28 @@ async function generateCodes() {
                     ready_codes.push({game: game.name, code});
                     codesCount[game.name.toLowerCase()]++;
 
-                    // Add the generated code to the output with a click handler
+                    // Добавляем сгенерированный код на страницу с обработчиком клика
                     const codeElement = document.createElement('p');
                     codeElement.classList.add('code');
                     codeElement.textContent = `${code}`;
                     codeElement.addEventListener('click', () => copyToClipboard(code));
                     output.appendChild(codeElement);
-
-                    // Break out of the loop if we have reached the limit
-                    if (codesCount[game.name.toLowerCase()] >= totalCodesPerGame) {
-                        break;
-                    }
                 } catch (error) {
                     const errorElement = document.createElement('p');
                     errorElement.textContent = `${game.name} Code Error`;
                     output.appendChild(errorElement);
                 }
-            }
+            });
+        } else {
+            return [];
         }
     });
-
 
     // Ждем выполнения всех задач параллельно
     await Promise.all(tasks);
 
-    output_text.classList.add('hidden')
-    finishMessage.classList.remove('hidden')
+    output_text.classList.add('hidden');
+    finishMessage.classList.remove('hidden');
 
     keygenButton.removeAttribute('disabled');
 }
