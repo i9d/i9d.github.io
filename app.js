@@ -59,13 +59,13 @@ async function registerEvent(token, promoId) {
         });
 
         if (!response.data.hasCode) {
-            await new Promise(resolve => setTimeout(resolve, 15000));
+            await new Promise(resolve => setTimeout(resolve, 30000));
             return registerEvent(token, promoId);
         } else {
             return true;
         }
     } catch (error) {
-        await new Promise(resolve => setTimeout(resolve, 15000));
+        await new Promise(resolve => setTimeout(resolve, 30000));
         return registerEvent(token, promoId);
     }
 }
