@@ -4,7 +4,8 @@ const games = [
     {name: 'Clone', appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767'},
     {name: 'Train', appToken: '82647f43-3f87-402d-88dd-09a90025313f', promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954'},
     {name: 'Merge', appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4'},
-    {name: 'Twerk', appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c', promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c'}
+    {name: 'Twerk', appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c', promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c'},
+    {name: 'Polysphere', appToken: '', promoId: ''},
 ];
 
 let ready_codes = [];
@@ -15,6 +16,7 @@ let codesCount = {
     train: 0,
     merge: 0,
     twerk: 0,
+    polysphere: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
@@ -118,7 +120,7 @@ async function generateCodes() {
     finishMessage.classList.add('hidden')
 
     ready_codes = [];
-    codesCount = {bike: 0, cube: 0, clone: 0, train: 0, merge: 0, twerk: 0};
+    codesCount = {bike: 0, cube: 0, clone: 0, train: 0, merge: 0, twerk: 0, polysphere: 0};
 
     const selectedGames = Array.from(document.querySelectorAll('.game-button.active')).map(button => button.getAttribute('data-game'));
     const totalCodesPerGame = parseInt(document.getElementById('codeCount').textContent);
