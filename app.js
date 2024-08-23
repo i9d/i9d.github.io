@@ -6,6 +6,8 @@ const games = [
     {name: 'Merge', appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4'},
     {name: 'Twerk', appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c', promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c'},
     {name: 'Polysphere', appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71'},
+    {name: 'mow_trim', appToken: '', promoId: ''},
+    {name: 'mud_racing', appToken: '', promoId: ''},
 ];
 
 let ready_codes = [];
@@ -17,6 +19,8 @@ let codesCount = {
     merge: 0,
     twerk: 0,
     polysphere: 0,
+    mow_trim: 0,
+    mud_racing: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
@@ -49,6 +53,7 @@ async function loginClient(appToken) {
 async function registerEvent(token, promoId) {
     const eventId = generateRandomUUID();
     try {
+        await new Promise(resolve => setTimeout(resolve, 5000));
         const response = await axios.post('https://api.gamepromo.io/promo/register-event', {
             promoId: promoId,
             eventId: eventId,
@@ -61,13 +66,13 @@ async function registerEvent(token, promoId) {
         });
 
         if (!response.data.hasCode) {
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise(resolve => setTimeout(resolve, 10000));
             return registerEvent(token, promoId);
         } else {
             return true;
         }
     } catch (error) {
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
         return registerEvent(token, promoId);
     }
 }
@@ -120,7 +125,6 @@ async function generateCodes() {
     finishMessage.classList.add('hidden');
 
     ready_codes = [];
-    codesCount = {bike: 0, cube: 0, clone: 0, train: 0, merge: 0, twerk: 0, polysphere: 0};
 
     const selectedGames = Array.from(document.querySelectorAll('.game-button.active')).map(button => button.getAttribute('data-game'));
     const totalCodesPerGame = parseInt(document.getElementById('codeCount').textContent);
