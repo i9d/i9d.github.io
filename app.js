@@ -7,6 +7,7 @@ const games = [
     {name: 'Polysphere', appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71'},
     {name: 'mow_trim', appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6'},
     {name: 'mud_racing', appToken: '8814a785-97fb-4177-9193-ca4180ff9da8', promoId: '8814a785-97fb-4177-9193-ca4180ff9da8'},
+    {name: 'cafe', appToken: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', promoId: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11'},
 ];
 
 let ready_codes = [];
@@ -19,6 +20,7 @@ let codesCount = {
     polysphere: 0,
     mow_trim: 0,
     mud_racing: 0,
+    cafe: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
