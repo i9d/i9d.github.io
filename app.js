@@ -6,7 +6,7 @@ const games = [
     {name: 'Polysphere', appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71'},
     {name: 'mow_trim', appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6'},
     {name: 'cafe', appToken: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', promoId: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11'},
-    {name: 'gangs_wars', appToken: 'b6de60a0-e030-48bb-a551-548372493523', promoId: 'b6de60a0-e030-48bb-a551-548372493523'},
+    {name: 'gangs_wars', appToken: 'b6de60a0-e030-48bb-a551-548372493523', promoId: 'c7821fa7-6632-482c-9635-2bd5798585f9'},
     {name: 'zoopolis', appToken: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promoId: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b'},
 ];
 
