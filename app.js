@@ -1,13 +1,13 @@
 const games = [
-    {name: 'Bike', appToken: 'd28721be-fd2d-4b45-869e-9f253b554e50', promoId: '43e35910-c168-4634-ad4f-52fd764a843f'},
     {name: 'Cube', appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3'},
     {name: 'Train', appToken: '82647f43-3f87-402d-88dd-09a90025313f', promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954'},
     {name: 'Merge', appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4'},
     {name: 'Twerk', appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c', promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c'},
     {name: 'Polysphere', appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71'},
     {name: 'mow_trim', appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6'},
-    {name: 'mud_racing', appToken: '8814a785-97fb-4177-9193-ca4180ff9da8', promoId: '8814a785-97fb-4177-9193-ca4180ff9da8'},
     {name: 'cafe', appToken: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', promoId: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11'},
+    {name: 'gangs_wars', appToken: 'b6de60a0-e030-48bb-a551-548372493523', promoId: 'b6de60a0-e030-48bb-a551-548372493523'},
+    {name: 'zoopolis', appToken: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promoId: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b'},
 ];
 
 let ready_codes = [];
