@@ -6,6 +6,8 @@ const games = [
     {name: 'Polysphere', appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71'},
     {name: 'mow_trim', appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6'},
     {name: 'zoopolis', appToken: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promoId: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b'},
+    {name: 'fluff', appToken: '112887b0-a8af-4eb2-ac63-d82df78283d9', promoId: '112887b0-a8af-4eb2-ac63-d82df78283d9'},
+    {name: 'trio', appToken: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', promoId: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7'},
 ];
 
 let ready_codes = [];
@@ -17,6 +19,8 @@ let codesCount = {
     polysphere: 0,
     mow_trim: 0,
     zoopolis: 0,
+    fluff: 0,
+    trio: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
