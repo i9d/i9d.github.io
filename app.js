@@ -10,6 +10,7 @@ const games = [
     {name: 'trio', appToken: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', promoId: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7'},
     {name: 'stone', appToken: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af', promoId: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af'},
     {name: 'bounce', appToken: 'bc72d3b9-8e91-4884-9c33-f72482f0db37', promoId: 'bc72d3b9-8e91-4884-9c33-f72482f0db37'},
+    {name: 'ball', appToken: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600', promoId: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600'},
 ];
 
 let ready_codes = [];
@@ -25,6 +26,7 @@ let codesCount = {
     trio: 0,
     stone: 0,
     bounce: 0,
+    ball: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
