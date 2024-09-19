@@ -13,6 +13,8 @@ const games = [
     {name: 'ball', appToken: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600', promoId: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600'},
     {name: 'count', appToken: '4bdc17da-2601-449b-948e-f8c7bd376553', promoId: '4bdc17da-2601-449b-948e-f8c7bd376553'},
     {name: 'pinout', appToken: 'd2378baf-d617-417a-9d99-d685824335f0', promoId: 'd2378baf-d617-417a-9d99-d685824335f0'},
+    {name: 'water', appToken: 'daab8f83-8ea2-4ad0-8dd5-d33363129640', promoId: 'daab8f83-8ea2-4ad0-8dd5-d33363129640'},
+    {name: 'frontier', appToken: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promoId: 'eb518c4b-e448-4065-9d33-06f3039f0fcb'},
 ];
 
 let ready_codes = [];
@@ -29,6 +31,10 @@ let codesCount = {
     stone: 0,
     bounce: 0,
     ball: 0,
+    count: 0,
+    pinout: 0,
+    water: 0,
+    frontier: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
