@@ -15,6 +15,7 @@ const games = [
     {name: 'pinout', appToken: 'd2378baf-d617-417a-9d99-d685824335f0', promoId: 'd2378baf-d617-417a-9d99-d685824335f0'},
     {name: 'water', appToken: 'daab8f83-8ea2-4ad0-8dd5-d33363129640', promoId: 'daab8f83-8ea2-4ad0-8dd5-d33363129640'},
     {name: 'frontier', appToken: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promoId: 'eb518c4b-e448-4065-9d33-06f3039f0fcb'},
+    {name: 'factory', appToken: 'd02fc404-8985-4305-87d8-32bd4e66bb16', promoId: 'd02fc404-8985-4305-87d8-32bd4e66bb16'},
 ];
 
 let ready_codes = [];
@@ -35,6 +36,7 @@ let codesCount = {
     pinout: 0,
     water: 0,
     frontier: 0,
+    factory: 0,
 };
 
 const MAX_CODES_PER_GAME = 4;
